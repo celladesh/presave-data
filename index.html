@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cella SGX · Pre-Save Campaign Trajectories</title>
+<title>Cella SGX · Pre-Save Campaign Trajectories · Mar 12 2026</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:Georgia,serif;background:#f8f9fc;min-height:100vh;color:#1f2937}
@@ -36,13 +36,15 @@
   .card-artist{font-weight:700;font-size:13px}
   .card-badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
   .badge-active{background:#dcfce7;color:#166534}
+  .badge-new{background:#dbeafe;color:#1e40af}
   .badge-done{background:#f3f4f6;color:#6b7280}
   .card-album{font-size:11px;color:#9ca3af;margin-bottom:8px;line-height:1.3}
   .card-presaves{font-size:22px;font-weight:800;font-family:monospace}
   .card-footer{display:flex;justify-content:space-between;margin-top:4px}
   .card-weeks{font-size:11px;color:#9ca3af}
   .card-growth{font-size:11px;color:#1A9E6F;font-weight:700}
-  svg text{font-family:Georgia,serif}
+  .anomaly-banner{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#92400e}
+  .anomaly-banner strong{color:#78350f}
 </style>
 </head>
 <body>
@@ -51,11 +53,15 @@
   <div style="max-width:1200px;margin:0 auto">
     <div class="header-eyebrow">Cella SGX</div>
     <h1>Pre-Save Campaign Trajectories</h1>
-    <div class="header-sub">18 artists · Weekly tracking · Interactive</div>
+    <div class="header-sub">19 artists · Week ending Mar 12, 2026 · Interactive</div>
   </div>
 </div>
 
 <div class="main">
+  <div class="anomaly-banner">
+    <strong>This week's updates:</strong> Greg Mendez (Beauty Land) added as new artist. Bon Iver now tracking a new live album releasing Apr 2. Cut Worms releases tomorrow (Mar 13).
+  </div>
+
   <div class="controls">
     <div class="tab-group" id="filterGroup"></div>
     <div class="tab-group" id="modeGroup"></div>
@@ -78,26 +84,28 @@
 <script>
 const RAW = [
   {artist:"Mitski",album:"Nothing's About to Happen to Me",release:"2026-02-27",series:[{w:"2026-01-23",v:366533},{w:"2026-02-06",v:563914},{w:"2026-02-13",v:627879},{w:"2026-02-20",v:709989}]},
-  {artist:"Bon Iver",album:"fABLE",release:"2025-04-11",series:[{w:"2025-03-07",v:106590},{w:"2025-03-14",v:113802},{w:"2025-03-21",v:134402},{w:"2025-03-28",v:160610}]},
+  {artist:"Bon Iver",album:"VOLUMES: ONE (...)",release:"2026-04-02",series:[{w:"2025-03-07",v:106590},{w:"2025-03-14",v:113802},{w:"2025-03-21",v:134402},{w:"2025-03-28",v:160610},{w:"2026-03-06",v:45365},{w:"2026-03-12",v:62239}]},
   {artist:"Japanese Breakfast",album:"For Melancholy Brunettes",release:"2025-03-21",series:[{w:"2025-03-07",v:46549},{w:"2025-03-14",v:58306}]},
   {artist:"Wednesday",album:"Bleeds",release:"2025-09-18",series:[{w:"2025-08-08",v:22991},{w:"2025-08-15",v:24438},{w:"2025-08-22",v:26273},{w:"2025-08-29",v:27697},{w:"2025-09-05",v:29550},{w:"2025-09-12",v:31875}]},
   {artist:"shame",album:"Cutthroat",release:"2025-09-04",series:[{w:"2025-08-08",v:15644},{w:"2025-08-15",v:16656},{w:"2025-08-22",v:17948},{w:"2025-08-29",v:18979}]},
   {artist:"Toro y Moi",album:"Unerthed",release:"2025-09-19",series:[{w:"2025-08-22",v:7},{w:"2025-08-29",v:6962},{w:"2025-09-05",v:11430},{w:"2025-09-12",v:18345}]},
   {artist:"Bright Eyes",album:"Kids Table",release:"2025-09-25",series:[{w:"2025-08-29",v:1042},{w:"2025-09-05",v:8604},{w:"2025-09-12",v:11992},{w:"2025-09-19",v:16925}]},
   {artist:"Jensen McRae",album:"IDKHBTFM",release:"2025-04-25",series:[{w:"2025-03-07",v:7084},{w:"2025-03-14",v:7841},{w:"2025-03-21",v:9715},{w:"2025-03-28",v:11865},{w:"2025-04-11",v:13741},{w:"2025-04-18",v:16687}]},
-  {artist:"Kevin Morby",album:"Little Wide Open",release:"2026-05-15",series:[{w:"2026-02-13",v:3172},{w:"2026-02-20",v:6884},{w:"2026-02-27",v:8957}]},
+  {artist:"Kevin Morby",album:"Little Wide Open",release:"2026-05-15",series:[{w:"2026-02-13",v:3172},{w:"2026-02-20",v:6884},{w:"2026-02-27",v:8957},{w:"2026-03-06",v:10836},{w:"2026-03-12",v:12365}]},
+  {artist:"Wesley Joseph",album:"Forever Ends Someday",release:"2026-04-10",series:[{w:"2026-01-16",v:3585},{w:"2026-01-23",v:4809},{w:"2026-02-06",v:6195},{w:"2026-02-13",v:6664},{w:"2026-02-20",v:7055},{w:"2026-02-27",v:7376},{w:"2026-03-06",v:7814},{w:"2026-03-12",v:8462}]},
   {artist:"Scowl",album:"Are We All Angels",release:"2025-04-04",series:[{w:"2025-03-07",v:5296},{w:"2025-03-14",v:5941},{w:"2025-03-21",v:6533},{w:"2025-03-28",v:7500}]},
-  {artist:"Wesley Joseph",album:"Forever Ends Someday",release:"2026-04-10",series:[{w:"2026-01-16",v:3585},{w:"2026-01-23",v:4809},{w:"2026-02-06",v:6195},{w:"2026-02-13",v:6664},{w:"2026-02-20",v:7055},{w:"2026-02-27",v:7376}]},
   {artist:"Hatchie",album:"Liquorice",release:"2025-11-06",series:[{w:"2025-09-05",v:1280},{w:"2025-09-12",v:2555},{w:"2025-09-19",v:3128},{w:"2025-09-26",v:3590},{w:"2025-10-10",v:4588},{w:"2025-10-17",v:5221},{w:"2025-10-24",v:5530},{w:"2025-10-31",v:5994}]},
   {artist:"Jens Lekman",album:"Songs for Other People's Weddings",release:"2025-09-11",series:[{w:"2025-08-08",v:3435},{w:"2025-08-15",v:4067},{w:"2025-08-22",v:4496},{w:"2025-08-29",v:4752},{w:"2025-09-05",v:5371}]},
-  {artist:"Cut Worms",album:"Transmitter",release:"2026-03-13",series:[{w:"2026-01-16",v:703},{w:"2026-01-23",v:1838},{w:"2026-02-06",v:2946},{w:"2026-02-13",v:3262},{w:"2026-02-20",v:3689},{w:"2026-02-27",v:3990}]},
-  {artist:"Gia Margaret",album:"Singing",release:"2026-04-24",series:[{w:"2026-02-06",v:1239},{w:"2026-02-13",v:2609},{w:"2026-02-20",v:3239},{w:"2026-02-27",v:3659}]},
-  {artist:"Avalon Emerson",album:"Written into Changes",release:"2026-03-20",series:[{w:"2026-01-23",v:807},{w:"2026-02-06",v:2280},{w:"2026-02-13",v:2609},{w:"2026-02-20",v:2924},{w:"2026-02-27",v:3405}]},
+  {artist:"Cut Worms",album:"Transmitter",release:"2026-03-13",series:[{w:"2026-01-16",v:703},{w:"2026-01-23",v:1838},{w:"2026-02-06",v:2946},{w:"2026-02-13",v:3262},{w:"2026-02-20",v:3689},{w:"2026-02-27",v:3990},{w:"2026-03-06",v:4487},{w:"2026-03-12",v:4841}]},
+  {artist:"Gia Margaret",album:"Singing",release:"2026-04-24",series:[{w:"2026-02-06",v:1239},{w:"2026-02-13",v:2609},{w:"2026-02-20",v:3239},{w:"2026-02-27",v:3659},{w:"2026-03-06",v:4134},{w:"2026-03-12",v:4571}]},
+  {artist:"Avalon Emerson",album:"Written into Changes",release:"2026-03-20",series:[{w:"2026-01-23",v:807},{w:"2026-02-06",v:2280},{w:"2026-02-13",v:2609},{w:"2026-02-20",v:2924},{w:"2026-02-27",v:3405},{w:"2026-03-06",v:3810},{w:"2026-03-12",v:4210}]},
   {artist:"S Carey",album:"Watercress",release:"2025-10-02",series:[{w:"2025-08-29",v:631},{w:"2025-09-05",v:1433},{w:"2025-09-12",v:1769},{w:"2025-09-19",v:2056},{w:"2025-09-26",v:2521}]},
+  {artist:"Greg Mendez",album:"Beauty Land",release:"2026-05-29",series:[{w:"2026-03-06",v:792},{w:"2026-03-12",v:1326}]},
   {artist:"MRCY",album:"VOLUME 2",release:"2025-05-30",series:[{w:"2025-03-07",v:301},{w:"2025-03-14",v:383},{w:"2025-03-21",v:439},{w:"2025-03-28",v:490},{w:"2025-04-11",v:566},{w:"2025-04-18",v:616},{w:"2025-04-25",v:709},{w:"2025-05-05",v:863},{w:"2025-05-09",v:945},{w:"2025-05-16",v:1055},{w:"2025-05-23",v:1157}]},
 ];
 
-const PALETTE = ["#2B4590","#1A9E6F","#E05C2A","#8B3FA8","#D4A017","#2A7EC0","#C0392B","#16A085","#884EA0","#D35400","#27AE60","#2980B9","#E74C3C","#1ABC9C","#F39C12","#8E44AD","#3498DB","#E67E22"];
+const NEW_ARTISTS = new Set(["Greg Mendez"]);
+const PALETTE = ["#2B4590","#1A9E6F","#E05C2A","#8B3FA8","#D4A017","#2A7EC0","#C0392B","#16A085","#884EA0","#D35400","#27AE60","#2980B9","#E74C3C","#1ABC9C","#F39C12","#8E44AD","#3498DB","#E67E22","#C0392B"];
 const colorOf = {};
 RAW.forEach((d,i) => colorOf[d.artist] = PALETTE[i % PALETTE.length]);
 const peakOf = {};
@@ -107,8 +115,8 @@ const fmt = n => n>=1e6?(n/1e6).toFixed(1)+"M":n>=1000?(n/1000).toFixed(0)+"K":S
 const fmtFull = n => n.toLocaleString("en-US");
 
 let selected = new Set(RAW.map(d=>d.artist));
-let mode = "absolute"; // absolute | relative
-let scale = "linear";  // linear | log
+let mode = "absolute";
+let scale = "linear";
 let filter = "all";
 
 function filtered() {
@@ -145,12 +153,7 @@ function buildChartData() {
   }
 }
 
-// ─── SVG CHART ───
 const PAD = {top:20, right:40, bottom:60, left:72};
-
-function logTick(v) {
-  return Math.pow(10, Math.round(Math.log10(v)));
-}
 
 function yPos(v, minV, maxV, h) {
   if(scale==="log") {
@@ -158,10 +161,10 @@ function yPos(v, minV, maxV, h) {
     const lMax = Math.log10(Math.max(maxV,1));
     return h - ((Math.log10(Math.max(v,1)) - lMin) / (lMax - lMin)) * h;
   }
-  return h - ((v - 0) / (maxV * 1.05)) * h;
+  return h - (v / (maxV * 1.05)) * h;
 }
 
-function niceYTicks(minV, maxV, count=6) {
+function niceYTicks(minV, maxV) {
   if(scale==="log") {
     const ticks=[];
     const start = Math.floor(Math.log10(Math.max(minV,1)));
@@ -171,6 +174,7 @@ function niceYTicks(minV, maxV, count=6) {
     }
     return [...new Set(ticks)].sort((a,b)=>a-b);
   }
+  const count = 6;
   const step = Math.pow(10, Math.floor(Math.log10(maxV/count)));
   const nice = Math.ceil(maxV/step)*step;
   const ticks=[];
@@ -184,98 +188,66 @@ function renderChart() {
   const H = 440;
   svg.setAttribute("height", H);
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
-
   const cw = W - PAD.left - PAD.right;
   const ch = H - PAD.top - PAD.bottom;
-
   const data = buildChartData();
   const artists = filtered().filter(d=>selected.has(d.artist));
-  if(!data.length || !artists.length) { svg.innerHTML="<text x='50%' y='50%' text-anchor='middle' fill='#9ca3af' font-size='14'>No artists selected</text>"; return; }
-
-  // value range
-  let allVals = [];
-  artists.forEach(d => data.forEach(row => { if(row[d.artist]!=null) allVals.push(row[d.artist]); }));
-  const maxV = Math.max(...allVals);
-  const minV = scale==="log" ? Math.max(1, Math.min(...allVals.filter(v=>v>0))) : 0;
-
-  const xStep = cw / Math.max(data.length-1, 1);
-  const xOf = i => PAD.left + i * xStep;
-  const yOf = v => PAD.top + yPos(v, minV, maxV, ch);
-
-  let html = "";
-
-  // Grid lines
-  const yTicks = niceYTicks(minV, maxV);
-  yTicks.forEach(t => {
-    const y = yOf(t);
-    if(y<PAD.top||y>PAD.top+ch+2) return;
-    html += `<line x1="${PAD.left}" y1="${y}" x2="${PAD.left+cw}" y2="${y}" stroke="#f0f0f0" stroke-width="1"/>`;
-    html += `<text x="${PAD.left-8}" y="${y+4}" text-anchor="end" font-size="11" fill="#9ca3af">${fmt(t)}</text>`;
+  if(!data.length||!artists.length){svg.innerHTML="<text x='50%' y='50%' text-anchor='middle' fill='#9ca3af' font-size='14'>No artists selected</text>";return;}
+  let allVals=[];
+  artists.forEach(d=>data.forEach(row=>{if(row[d.artist]!=null)allVals.push(row[d.artist]);}));
+  const maxV=Math.max(...allVals);
+  const minV=scale==="log"?Math.max(1,Math.min(...allVals.filter(v=>v>0))):0;
+  const xStep=cw/Math.max(data.length-1,1);
+  const xOf=i=>PAD.left+i*xStep;
+  const yOf=v=>PAD.top+yPos(v,minV,maxV,ch);
+  let html="";
+  niceYTicks(minV,maxV).forEach(t=>{
+    const y=yOf(t);
+    if(y<PAD.top-2||y>PAD.top+ch+2)return;
+    html+=`<line x1="${PAD.left}" y1="${y}" x2="${PAD.left+cw}" y2="${y}" stroke="#f0f0f0" stroke-width="1"/>`;
+    html+=`<text x="${PAD.left-8}" y="${y+4}" text-anchor="end" font-size="11" fill="#9ca3af">${fmt(t)}</text>`;
   });
-
-  // X axis labels
-  const maxLabels = Math.floor(cw / 50);
-  const step = Math.max(1, Math.ceil(data.length / maxLabels));
-  data.forEach((row,i) => {
-    if(i % step !== 0 && i !== data.length-1) return;
-    const x = xOf(i);
-    html += `<text x="${x}" y="${PAD.top+ch+18}" text-anchor="end" font-size="11" fill="#9ca3af" transform="rotate(-35,${x},${PAD.top+ch+18})">${row.label}</text>`;
+  const maxLabels=Math.floor(cw/50);
+  const step=Math.max(1,Math.ceil(data.length/maxLabels));
+  data.forEach((row,i)=>{
+    if(i%step!==0&&i!==data.length-1)return;
+    const x=xOf(i);
+    html+=`<text x="${x}" y="${PAD.top+ch+18}" text-anchor="end" font-size="11" fill="#9ca3af" transform="rotate(-35,${x},${PAD.top+ch+18})">${row.label}</text>`;
   });
-
-  // Axes
-  html += `<line x1="${PAD.left}" y1="${PAD.top}" x2="${PAD.left}" y2="${PAD.top+ch}" stroke="#e5e7eb" stroke-width="1"/>`;
-  html += `<line x1="${PAD.left}" y1="${PAD.top+ch}" x2="${PAD.left+cw}" y2="${PAD.top+ch}" stroke="#e5e7eb" stroke-width="1"/>`;
-
-  // Lines + dots
-  artists.forEach(d => {
-    const col = colorOf[d.artist];
-    const pts = data.map((row,i) => row[d.artist]!=null ? {x:xOf(i),y:yOf(row[d.artist]),v:row[d.artist]} : null).filter(Boolean);
-    if(pts.length<1) return;
-
-    // line segments (handle gaps)
-    for(let i=1;i<pts.length;i++) {
-      html += `<line x1="${pts[i-1].x}" y1="${pts[i-1].y}" x2="${pts[i].x}" y2="${pts[i].y}" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/>`;
-    }
-    pts.forEach(pt => {
-      html += `<circle cx="${pt.x}" cy="${pt.y}" r="4" fill="${col}" stroke="#fff" stroke-width="1.5" class="dot" data-artist="${d.artist}" data-v="${pt.v}"/>`;
+  html+=`<line x1="${PAD.left}" y1="${PAD.top}" x2="${PAD.left}" y2="${PAD.top+ch}" stroke="#e5e7eb" stroke-width="1"/>`;
+  html+=`<line x1="${PAD.left}" y1="${PAD.top+ch}" x2="${PAD.left+cw}" y2="${PAD.top+ch}" stroke="#e5e7eb" stroke-width="1"/>`;
+  artists.forEach(d=>{
+    const col=colorOf[d.artist];
+    const pts=data.map((row,i)=>row[d.artist]!=null?{x:xOf(i),y:yOf(row[d.artist]),v:row[d.artist]}:null).filter(Boolean);
+    if(pts.length<1)return;
+    for(let i=1;i<pts.length;i++) html+=`<line x1="${pts[i-1].x}" y1="${pts[i-1].y}" x2="${pts[i].x}" y2="${pts[i].y}" stroke="${col}" stroke-width="2.5" stroke-linecap="round"/>`;
+    pts.forEach(pt=>{ html+=`<circle cx="${pt.x}" cy="${pt.y}" r="4" fill="${col}" stroke="#fff" stroke-width="1.5"/>`;});
+  });
+  data.forEach((row,i)=>{
+    const x=xOf(i);
+    const ar=artists.filter(d=>row[d.artist]!=null);
+    if(!ar.length)return;
+    const rowJson=JSON.stringify({label:row.label,artists:ar.map(d=>({name:d.artist,v:row[d.artist],color:colorOf[d.artist]}))});
+    html+=`<rect x="${x-xStep/2}" y="${PAD.top}" width="${xStep}" height="${ch}" fill="transparent" class="hover-col" data-row='${rowJson.replace(/'/g,"&#39;")}' />`;
+  });
+  svg.innerHTML=html;
+  const tt=document.getElementById("tooltip");
+  svg.querySelectorAll(".hover-col").forEach(el=>{
+    el.addEventListener("mousemove",e=>{
+      const row=JSON.parse(el.getAttribute("data-row").replace(/&#39;/g,"'"));
+      document.getElementById("tt-title").textContent=mode==="relative"?`${row.label} weeks to release`:`Week of ${row.label}`;
+      document.getElementById("tt-rows").innerHTML=row.artists.sort((a,b)=>b.v-a.v).map(a=>`<div class="tooltip-row"><div class="tooltip-dot" style="background:${a.color}"></div><span style="color:#6b7280">${a.name}:</span>&nbsp;<strong>${fmtFull(a.v)}</strong></div>`).join("");
+      tt.style.display="block";tt.style.left=(e.clientX+16)+"px";tt.style.top=(e.clientY-20)+"px";
     });
-  });
-
-  // Invisible hover columns for tooltip
-  data.forEach((row,i) => {
-    const x = xOf(i);
-    const artistsInRow = artists.filter(d=>row[d.artist]!=null);
-    if(!artistsInRow.length) return;
-    const rowJson = JSON.stringify({label:row.label, artists: artistsInRow.map(d=>({name:d.artist,v:row[d.artist],color:colorOf[d.artist]}))});
-    html += `<rect x="${x-xStep/2}" y="${PAD.top}" width="${xStep}" height="${ch}" fill="transparent" class="hover-col" data-row='${rowJson.replace(/'/g,"&#39;")}' data-x="${x}" data-w="${W}"/>`;
-  });
-
-  svg.innerHTML = html;
-
-  // Tooltip logic
-  const tt = document.getElementById("tooltip");
-  svg.querySelectorAll(".hover-col").forEach(el => {
-    el.addEventListener("mousemove", e => {
-      const row = JSON.parse(el.getAttribute("data-row").replace(/&#39;/g,"'"));
-      document.getElementById("tt-title").textContent = mode==="relative" ? `${row.label} weeks to release` : `Week of ${row.label}`;
-      document.getElementById("tt-rows").innerHTML = row.artists.sort((a,b)=>b.v-a.v).map(a =>
-        `<div class="tooltip-row"><div class="tooltip-dot" style="background:${a.color}"></div><span style="color:#6b7280">${a.name}:</span>&nbsp;<strong>${fmtFull(a.v)}</strong></div>`
-      ).join("");
-      tt.style.display = "block";
-      tt.style.left = (e.clientX + 16) + "px";
-      tt.style.top  = (e.clientY - 20) + "px";
-    });
-    el.addEventListener("mouseleave", () => { tt.style.display="none"; });
+    el.addEventListener("mouseleave",()=>{tt.style.display="none";});
   });
 }
 
-// ─── ARTIST TOGGLES ───
 function renderToggles() {
-  const container = document.getElementById("artistToggles");
-  const list = filtered().slice().sort((a,b)=>peakOf[b.artist]-peakOf[a.artist]);
-  container.innerHTML = list.map(d => {
-    const col = colorOf[d.artist];
-    const on = selected.has(d.artist);
+  const container=document.getElementById("artistToggles");
+  const list=filtered().slice().sort((a,b)=>peakOf[b.artist]-peakOf[a.artist]);
+  container.innerHTML=list.map(d=>{
+    const col=colorOf[d.artist];const on=selected.has(d.artist);
     return `<button class="artist-btn" onclick="toggleArtist('${d.artist.replace(/'/g,"\\'")}')" style="border-color:${on?col:"#d1d5db"};background:${on?col+"22":"#fff"}">
       <div class="artist-dot" style="background:${on?col:"#d1d5db"}"></div>
       <span class="artist-name" style="color:${on?col:"#9ca3af"}">${d.artist}</span>
@@ -284,19 +256,21 @@ function renderToggles() {
   }).join("");
 }
 
-// ─── STAT CARDS ───
 function renderCards() {
-  const container = document.getElementById("cards");
-  const list = filtered().filter(d=>selected.has(d.artist)).sort((a,b)=>peakOf[b.artist]-peakOf[a.artist]);
-  container.innerHTML = list.map(d => {
-    const col = colorOf[d.artist];
-    const isActive = d.release >= "2026-03-05";
-    const first = d.series[0].v;
-    const growth = d.series.length>1 ? Math.round((peakOf[d.artist]-first)/first*100) : 0;
+  const container=document.getElementById("cards");
+  const list=filtered().filter(d=>selected.has(d.artist)).sort((a,b)=>peakOf[b.artist]-peakOf[a.artist]);
+  container.innerHTML=list.map(d=>{
+    const col=colorOf[d.artist];
+    const isNew=NEW_ARTISTS.has(d.artist);
+    const isActive=d.release>="2026-03-12";
+    const first=d.series[0].v;
+    const growth=d.series.length>1?Math.round((peakOf[d.artist]-first)/first*100):0;
+    const badgeClass=isNew?"badge-new":isActive?"badge-active":"badge-done";
+    const badgeLabel=isNew?"New":isActive?"Active":"Done";
     return `<div class="card" style="border-left-color:${col}">
       <div class="card-header">
         <div class="card-artist">${d.artist}</div>
-        <span class="card-badge ${isActive?"badge-active":"badge-done"}">${isActive?"Active":"Done"}</span>
+        <span class="card-badge ${badgeClass}">${badgeLabel}</span>
       </div>
       <div class="card-album">${d.album}</div>
       <div class="card-presaves" style="color:${col}">${fmt(peakOf[d.artist])}</div>
@@ -308,48 +282,22 @@ function renderCards() {
   }).join("");
 }
 
-// ─── TAB GROUPS ───
-function makeTabs(id, options, current, onChange) {
-  const container = document.getElementById(id);
-  function render(val) {
-    container.innerHTML = options.map(o =>
-      `<button class="tab${val===o.v?" active":""}" onclick="(${onChange.toString()})('${o.v}')">${o.label}</button>`
-    ).join("");
-  }
-  render(current);
-  return render;
+let renderFilter,renderMode,renderScale;
+function makeTabs(id,options,current,onChange){
+  const el=document.getElementById(id);
+  function render(val){el.innerHTML=options.map(o=>`<button class="tab${val===o.v?" active":""}" onclick="(${onChange.toString()})('${o.v}')">${o.label}</button>`).join("");}
+  render(current);return render;
 }
+renderFilter=makeTabs("filterGroup",[{v:"all",label:"All"},{v:"active",label:"Active"},{v:"completed",label:"Completed"}],filter,v=>{filter=v;selected=new Set(filtered().map(d=>d.artist));renderFilter(filter);renderToggles();renderChart();renderCards();});
+renderMode=makeTabs("modeGroup",[{v:"absolute",label:"By Date"},{v:"relative",label:"Weeks to Release"}],mode,v=>{mode=v;renderMode(mode);renderChart();});
+renderScale=makeTabs("scaleGroup",[{v:"linear",label:"Linear"},{v:"log",label:"Log Scale"}],scale,v=>{scale=v;renderScale(scale);renderChart();});
 
-let renderFilter, renderMode, renderScale;
+function toggleArtist(a){if(selected.has(a))selected.delete(a);else selected.add(a);renderToggles();renderChart();renderCards();}
+function selectAll(){selected=new Set(filtered().map(d=>d.artist));renderToggles();renderChart();renderCards();}
+function clearAll(){selected=new Set();renderToggles();renderChart();renderCards();}
 
-renderFilter = makeTabs("filterGroup", [{v:"all",label:"All"},{v:"active",label:"Active"},{v:"completed",label:"Completed"}], filter, v => {
-  filter = v;
-  selected = new Set(filtered().map(d=>d.artist));
-  renderFilter(filter); renderToggles(); renderChart(); renderCards();
-});
-renderMode = makeTabs("modeGroup", [{v:"absolute",label:"By Date"},{v:"relative",label:"Weeks to Release"}], mode, v => {
-  mode = v; renderMode(mode); renderChart();
-});
-renderScale = makeTabs("scaleGroup", [{v:"linear",label:"Linear"},{v:"log",label:"Log Scale"}], scale, v => {
-  scale = v; renderScale(scale); renderChart();
-});
-
-function toggleArtist(artist) {
-  if(selected.has(artist)) selected.delete(artist); else selected.add(artist);
-  renderToggles(); renderChart(); renderCards();
-}
-function selectAll() {
-  selected = new Set(filtered().map(d=>d.artist));
-  renderToggles(); renderChart(); renderCards();
-}
-function clearAll() {
-  selected = new Set();
-  renderToggles(); renderChart(); renderCards();
-}
-
-// Initial render
-renderToggles(); renderChart(); renderCards();
-window.addEventListener("resize", renderChart);
+renderToggles();renderChart();renderCards();
+window.addEventListener("resize",renderChart);
 </script>
 </body>
 </html>
